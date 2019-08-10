@@ -1,22 +1,95 @@
+# Java反射实现和用途
+
+##一、反射的概述
+JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。要想解剖一个类,必须先要获取到该类的字节码文件对象。而解剖使用的就是Class类中的方法.所以先要获取到每一个字节码文件对应的Class类型的对象.
+
+##二、要想更好地理解反射，就要先知道java类的加载过程
+每个类都会产生一个对应的Class对象，也就是保存在.class文件。所有类都是在对其第一次使用时，动态加载到JVM的，当程序创建一个对类的静态成员的引用时，就会加载这个类。Class对象仅在需要的时候才会加载，static修饰的属性和代码块初始化是在类加载时进行的。
+
+##三.类加载的三个步骤
+加载：由类加载器完成，找到对应的字节码，创建一个Class对象
+链接：验证类中的字节码，为静态域分配空间
+初始化：如果该类有超类，则对其初始化，执行静态初始化器和静态初始化块
+
+![img](https://upload-images.jianshu.io/upload_images/3264661-817934a8b77d0ddc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/839/format/webp)
+
+![img](https://upload-images.jianshu.io/upload_images/3264661-80ccc66ff83050f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/818/format/webp)
+
+![img](https://upload-images.jianshu.io/upload_images/3264661-e37ad7ff514f3d99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/825/format/webp)
+
+##四.代码实现
+
+###student类代码
+```java
 package com.example.android;
+public class Student {
 
-import androidx.appcompat.app.AppCompatActivity;
+    //---------------构造方法-------------------
+    //（默认的构造方法）
+    Student(String str) {
+        System.out.println("(默认)的构造方法 s = " + str);
+    }
 
-import android.os.Bundle;
-import android.util.Log;
+    //无参构造方法
+    public Student() {
+        System.out.println("调用了公有、无参构造方法执行了。。。");
+    }
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
+    //有一个参数的构造方法
+    public Student(char name) {
+        System.out.println("姓名：" + name);
+    }
 
-public class MainActivity extends AppCompatActivity {
+    //有多个参数的构造方法
+    public Student(String name, int age) {
+        System.out.println("姓名：" + name + "年龄：" + age);//这的执行效率有问题，以后解决。
+    }
 
+    //受保护的构造方法
+    protected Student(boolean n) {
+        System.out.println("受保护的构造方法 n = " + n);
+    }
+
+    //私有构造方法
+    private Student(int age) {
+        System.out.println("私有的构造方法   年龄：" + age);
+    }
+
+    //**********字段   获取成员变量并调用*************//
+    public String name;
+    protected int age;
+    char sex;
+    private String phoneNum;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        /* "************通过反射创建对象的方式：********************"*/
+    public String toString() {
+        return "Student [name=" + name + ", age=" + age + ", sex=" + sex
+                + ", phoneNum=" + phoneNum + "]";
+    }
+
+    //**************成员方法***************//
+    public void show1(String s){
+        System.out.println("调用了：公有的，String参数的show1(): s = " + s);
+    }
+    protected void show2(){
+        System.out.println("调用了：受保护的，无参的show2()");
+    }
+    void show3(){
+        System.out.println("调用了：默认的，无参的show3()");
+    }
+    private String show4(int age) {
+        System.out.println("调用了，私有的，并且有返回值的，int参数的show4(): age = " + age);
+        return "abcd";
+    }
+}
+
+```
+
+###1.通过反射创建对象的方式
+###2.通过反射获取成员变量并调用
+###3.通过反射越过泛型检查
+
+```java
+  /* "************通过反射创建对象的方式：********************"*/
         //第一种方式获取Class对象
         Student stu1 = new Student();//这一new 产生一个Student对象，一个Class对象。
         Class stuClass = stu1.getClass();//获取Class对象
@@ -24,18 +97,15 @@ public class MainActivity extends AppCompatActivity {
 
         //第二种方式获取Class对象
         Class stuClass2 = Student.class;
-        Log.e("MainActivity", (stuClass == stuClass2) + "");//判断第一种方式获取的Class对象和第二种方式获取的是否是同一个
+				//判断第一种方式获取的Class对象和第二种方式获取的是否是同一个
+        Log.e("MainActivity", (stuClass == stuClass2) + "");
 
         //第三种方式获取Class对象
         try {
-            Class clazz = Class.forName("com.example.android.Student");//注意此字符串必须是真实路径，就是带包名的类路径，包名.类名
-            Log.e("MainActivity", (clazz == stuClass2) + "");//判断三种方式是否获取的是同一个Class对象
-
-
-
-
-
-
+          //注意此字符串必须是真实路径，就是带包名的类路径，包名.类名
+            Class clazz = Class.forName("com.example.android.Student");
+          //判断三种方式是否获取的是同一个Class对象
+            Log.e("MainActivity", (clazz == stuClass2) + "");
 
 
             /* "************通过反射获取构造方法并使用：********************"*/
@@ -68,9 +138,6 @@ public class MainActivity extends AppCompatActivity {
             //调用构造方法
             con.setAccessible(true);//暴力访问(忽略掉访问修饰符)
             obj = con.newInstance(16);
-
-
-
 
 
 
@@ -148,18 +215,9 @@ public class MainActivity extends AppCompatActivity {
             Object result = m.invoke(obj6, 20);//需要两个参数，一个是要调用的对象（获取有反射），一个是实参
 
 
-
-
             /*5、反射main方法*/
 
-
-
             /*6、反射方法的其它使用之---通过反射运行配置文件内容*/
-
-
-
-
-
 
 
             /* "************反射方法的其它使用之---通过反射越过泛型检查********************"*/
@@ -181,10 +239,32 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(obj3);
 
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-}
+```
+
+
+​
+
+
+##四.总结
+####1.Java反射框架提供以下功能：
+* 在运行时判断任意一个对象所属的类
+* 在运行时构造任意一个类的对象
+* 在运行时判断任意一个类所具有的成员变量和方法（通过反射设置可以调用 private）
+* 在运行时调用任意一个对象的方法
+
+####2.反射常见的主要用途：
+
+当我们在使用 IDE（如Eclipse\IDEA）时，当我们输入一个队长或者类并向调用它的属性和方法时，一按 (“.”)点号，编译器就会自动列出她的属性或方法，这里就会用到反射。
+
+####3.反射最重要的用途就是开发各种通用框架。
+
+很多框架（比如 Spring）都是配置化的（比如通过 XML文件配置JavaBean，Action之类的），为了保证框架的通用性，他们可能根据配置文件加载不同的对象或类，调用不同的方法，这个时候就必须用到反射——运行时动态加载需要加载的对象。
+
+```
+
+```
+
+
