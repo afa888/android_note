@@ -2,8 +2,10 @@ package com.example.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -16,6 +18,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ActivityAnnotation.class));
+            }
+        });
         /* "************通过反射创建对象的方式：********************"*/
         //第一种方式获取Class对象
         Student stu1 = new Student();//这一new 产生一个Student对象，一个Class对象。
@@ -138,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
             Method m = stuClass.getMethod("show1", String.class);
             System.out.println(m);
             //实例化一个Student对象
-            Object obj6= stuClass.getConstructor().newInstance();
+            Object obj6 = stuClass.getConstructor().newInstance();
             m.invoke(obj6, "刘德华");
 
             System.out.println("***************获取私有的show4()方法******************");
