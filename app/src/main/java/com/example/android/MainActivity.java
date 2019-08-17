@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.android.DraggerDemo.DragActivity;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -22,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ActivityAnnotation.class));
+            }
+        });
+        findViewById(R.id.tv2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, DragActivity.class));
             }
         });
         /* "************通过反射创建对象的方式：********************"*/

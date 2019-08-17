@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
@@ -26,4 +25,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.google.dagger:dagger:2.7'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.7'
 }
