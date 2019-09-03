@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.example.android.DraggerDemo.DragActivity;
 import com.example.android.EventBusDemo.EventActivity;
+import com.example.android.MvpDemo.LoginActivity;
 import com.example.android.Rxjava.RxjavaActivity;
 
 import java.lang.reflect.Constructor;
@@ -46,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, RxjavaActivity.class));
+            }
+        });
+
+        findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
         /* "************通过反射创建对象的方式：********************"*/
