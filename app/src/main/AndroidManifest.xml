@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EventBusDemo.EventActivity"></activity>
+        <activity android:name=".MvpDemo.LoginActivity"></activity>
+        <activity android:name=".Rxjava.RxjavaActivity" />
+        <activity android:name=".EventBusDemo.EventActivity" />
         <activity android:name=".DraggerDemo.DragActivity" />
         <activity android:name=".ActivityAnnotation" />
         <activity android:name=".MainActivity">

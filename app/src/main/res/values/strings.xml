@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">android笔记</string>
+    <string name="username_error">用户名错误</string>
+    <string name="password_error">密码错误</string>
 </resources>
