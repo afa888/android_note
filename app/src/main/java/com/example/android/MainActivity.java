@@ -12,6 +12,7 @@ import com.example.android.EventBusDemo.EventActivity;
 import com.example.android.MvpDemo.LoginActivity;
 import com.example.android.Rxjava.RxjavaActivity;
 import com.example.android.mvvmDemo.MvvmActivity;
+import com.example.android.mvvmDemo.MvvmRecyclerViewActivity;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -62,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, MvvmActivity.class));
+            }
+        });
+        findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MvvmRecyclerViewActivity.class));
             }
         });
         /* "************通过反射创建对象的方式：********************"*/

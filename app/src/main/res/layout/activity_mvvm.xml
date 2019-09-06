@@ -39,13 +39,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:text="@{user.lastName}" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="BaseObservable" />
+            android:text="单向实现数据变化自动驱动 UI 刷新，数据绑定后，我们自然会希望数据变更后 UI 会即时刷新，实现数据变化自动驱动 UI 刷新的方式有三种：BaseObservable、ObservableField、ObservableCollection" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,6 +58,39 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:text="@{userObj.lastName}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="带 ID 的 View" />
+
+        <TextView
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="双向实现数据变化自动驱动 UI 刷新，数据绑定后，数据变更后 UI 会即时刷新，Ui更新也会刷新数据 ,绑定变量的方式比单向绑定多了一个等号：android:text=@={userObj.firstName}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark"
+            android:onClick="@{clickListener}"
+            android:text="@{userObj.firstName}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="@android:color/holo_red_dark"
+            android:hint="请输入数据"
+            android:text="@={userObj.firstName}" />
+
+
     </LinearLayout>
 
 </layout>
