@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+ <!--   <data>
+
+        <variable
+            name="user"
+            type="com.example.android.MvvmDemo.User" />
+    </data> -->
+
+    <data>
+        <import type="com.example.android.mvvmDemo.User" />
+        <import type="com.example.android.mvvmDemo.UserObj" />
+        <import type="android.view.View.OnClickListener" />
+        <variable
+            name="user"
+            type="User" />
+        <variable
+            name="userObj"
+            type="UserObj" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickListener}"
+            android:text="@{`jkjlkjljl`+user.firstName}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@{user.lastName}" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="BaseObservable" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickListener}"
+            android:text="@{`999`+userObj.firstName}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@{userObj.lastName}" />
+    </LinearLayout>
+
+</layout>
