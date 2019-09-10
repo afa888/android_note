@@ -7,8 +7,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.android.Annotation.ConsAnnotation;
+import com.example.android.Annotation.Fields;
+import com.example.android.Annotation.Programer;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 
 public class ActivityAnnotation extends AppCompatActivity {
     @GetViewTo(R.id.tv)
@@ -17,12 +23,35 @@ public class ActivityAnnotation extends AppCompatActivity {
     @GetViewTo(R.id.bt)
     private Button mBt;
 
+    @GetViewTo(R.id.btget)
+    private Button mBget;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_annotation);
         //通过注解生成View；
         getAllAnnotationView();
+        mBget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Programer user = new Programer();
+                    // 1、 获取 User类上的注解 @ConsAnnotation
+                    ConsAnnotation anno = user.getClass().getAnnotation(ConsAnnotation.class);
+                    String[] arr = anno.request();
+                    System.out.println(Arrays.toString(arr)); // [hello, world, annotation!]
+
+                    // 2、 获取User类中 private String userName; 变量上的注解 @Field
+                    Field f = user.getClass().getDeclaredField("userName");
+                    Fields anno2 = f.getAnnotation(Fields.class);
+                    user.setUserName(anno2.value());
+                    Toast.makeText(ActivityAnnotation.this, "1 == " + Arrays.toString(arr) + "2 == " + anno2.value(), Toast.LENGTH_SHORT).show();
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         mBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

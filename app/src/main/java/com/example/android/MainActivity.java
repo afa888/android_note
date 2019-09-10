@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.example.android.DraggerDemo.DragActivity;
 import com.example.android.EventBusDemo.EventActivity;
+import com.example.android.HashMapDemo.HashMapActivity;
 import com.example.android.MvpDemo.LoginActivity;
 import com.example.android.Rxjava.RxjavaActivity;
 import com.example.android.mvvmDemo.MvvmActivity;
@@ -69,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, MvvmRecyclerViewActivity.class));
+            }
+        });
+        findViewById(R.id.button8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, HashMapActivity.class));
             }
         });
         /* "************通过反射创建对象的方式：********************"*/

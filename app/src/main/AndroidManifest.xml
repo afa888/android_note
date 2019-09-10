@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvvmDemo.MvvmRecyclerViewActivity"></activity>
+        <activity android:name=".HashMapDemo.HashMapActivity"></activity>
+        <activity android:name=".KotlinDemo.KotlinActivity" />
+        <activity android:name=".mvvmDemo.MvvmRecyclerViewActivity" />
         <activity android:name=".mvvmDemo.MvvmActivity" />
         <activity android:name=".MvpDemo.LoginActivity" />
         <activity android:name=".Rxjava.RxjavaActivity" />
