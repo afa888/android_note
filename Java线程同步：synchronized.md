@@ -163,6 +163,27 @@ test结束..
 上面代码用synchronized(Sync.class)实现了全局锁的效果。
 
 最后说说static synchronized方法，static方法可以直接类名加方法名调用，方法中无法使用this，所以它锁的不是this，而是类的Class对象，所以，static synchronized方法也相当于全局锁，相当于锁住了代码段。
- ———————————————— 
-版权声明：本文为CSDN博主「叉叉哥」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/xiao__gui/article/details/8188833
+
+# 单例模式singleton为什么要加volatile
+
+```
+public class Singleton {
+    private volatile static Singleton uniqueInstance;
+    private Singleton(){}
+    public static Singleton getInstance(){
+        if(uniqueInstance == null){
+         // B线程检测到uniqueInstance不为空
+            synchronized(Singleton.class){
+                if(uniqueInstance == null){
+                    uniqueInstance = new Singleton();
+                     // A线程被指令重排了，刚好先赋值了；但还没执行完构造函数。
+                }
+            }
+        }
+        return uniqueInstance;// 后面B线程执行时将引发：对象尚未初始化错误。
+    }
+}
+
+```
+
+synchronized虽然保证了原子性，但却没有保证指令重排序的正确性，会出现A线程执行初始化，但可能因为构造函数里面的操作太多了，所以A线程的uniqueInstance实例还没有造出来，但已经被赋值了。而B线程这时过来了，错以为uniqueInstance已经被实例化出来，一用才发现uniqueInstance尚未被初始化。要知道我们的线程虽然可以保证原子性，但程序可能是在多核CPU上执行。
