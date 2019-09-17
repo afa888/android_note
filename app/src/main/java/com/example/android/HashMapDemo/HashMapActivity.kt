@@ -15,7 +15,7 @@ class HashMapActivity : AppCompatActivity() {
         setContentView(R.layout.activity_hash_map)
 
         findViewById<Button>(R.id.button13).setOnClickListener(View.OnClickListener {
-            var map = ManualHashMap();
+            var map = EeasyHashMap();
             map.put("6", "b")
             map.put("6", "a")
             map.put("5", "c")
