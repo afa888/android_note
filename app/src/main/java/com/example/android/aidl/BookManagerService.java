@@ -15,17 +15,14 @@ import java.util.List;
 public class BookManagerService  extends Service {
     private static final String TAG = "BookManagerService";
     private Handler mHandler = new Handler();
-
     public BookManagerService() {
     }
     private List<Book> mBookList = new ArrayList<>();
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
     }
-
     private IBookManager.Stub mBinder =new IBookManager.Stub(){
 
         @Override

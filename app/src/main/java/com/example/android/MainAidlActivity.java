@@ -29,7 +29,6 @@ public class MainAidlActivity extends AppCompatActivity {
                 bindService(btBind);
             }
         });
-
         findViewById(R.id.btAdd).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
