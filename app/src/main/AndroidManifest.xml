@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HashMapDemo.HashMapActivity"></activity>
+        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".MainAidlActivity" />
+        <activity android:name=".aidl.AidlActivity" />
+        <activity android:name=".HashMapDemo.HashMapActivity" />
         <activity android:name=".KotlinDemo.KotlinActivity" />
         <activity android:name=".mvvmDemo.MvvmRecyclerViewActivity" />
         <activity android:name=".mvvmDemo.MvvmActivity" />
@@ -25,6 +28,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".aidl.BookManagerService"
+            android:process=":remote">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.example.android.aidl.BookManagerService" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

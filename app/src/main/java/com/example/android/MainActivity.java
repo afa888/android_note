@@ -2,11 +2,15 @@ package com.example.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityManager;
 import android.content.Intent;
+import android.content.pm.LauncherApps;
 import android.os.Bundle;
+import android.support.v4.app.INotificationSideChannel;
 import android.util.Log;
 import android.view.View;
 
+import com.example.android.AlgorithmDemo.Kp;
 import com.example.android.DraggerDemo.DragActivity;
 import com.example.android.EventBusDemo.EventActivity;
 import com.example.android.HashMapDemo.HashMapActivity;
@@ -26,6 +30,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.btKp).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int[] list = {2, 4, 1, 9, 5, 4, 5, 2, 1, 2, 45, 67, 534, 34, 412, 232};
+                Kp kp = new Kp();
+                kp.setA(list);
+                kp.quicksort(0, list.length - 1);
+                kp.log();
+            }
+        });
+
+        findViewById(R.id.btMp).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int[] list = {2, 4, 1, 9, 5, 4, 5, 2, 1, 2, 45, 67, 534, 34, 412, 232};
+                Kp kp = new Kp();
+                kp.setA(list);
+                kp.mpSort();
+                kp.log();
+            }
+        });
+        findViewById(R.id.btBinder).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MainAidlActivity.class));
+            }
+        });
         findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
