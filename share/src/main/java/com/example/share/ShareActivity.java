@@ -2,6 +2,7 @@ package com.example.share;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -39,6 +40,8 @@ public class ShareActivity extends AppCompatActivity {
 
     public void shareLogin(View view) {
         ARouter.getInstance().build("/account/login").navigation();
+     // startActivity(new Intent(ShareActivity.this, com.example.login.LoginActivity.class));
+
     }
 
 }

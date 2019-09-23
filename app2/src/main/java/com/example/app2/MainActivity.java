@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.componentbase.ServiceFactory;
+import com.example.share.ShareActivity;
 
 public class MainActivity extends AppCompatActivity {
 
