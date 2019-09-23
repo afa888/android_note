@@ -16,14 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service
+        <com.example.componentbase.service
             android:name=".AIDLService"
             >
             <intent-filter>
                 <action android:name="com.example.remote_service"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
-        </service>
+        </com.example.componentbase.service>
     </application>
 
 </manifest>

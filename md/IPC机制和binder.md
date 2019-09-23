@@ -177,14 +177,14 @@ public class BookManagerService  extends Service {
 5.在清单文件开启单独进程
 
 ```
- <service
+ <com.example.componentbase.service
             android:name=".aidl.BookManagerService"
             android:process=":remote">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="com.example.android.aidl.BookManagerService" />
             </intent-filter>
-        </service>
+        </com.example.componentbase.service>
 ```
 
 6.客户端调用MainActivity
@@ -224,8 +224,8 @@ public class MainAidlActivity extends AppCompatActivity {
     private IBookManager mIBookManager;
     private ServiceConnection mServiceConnection = new ServiceConnection() {
         @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mIBookManager = IBookManager.Stub.asInterface(service);
+        public void onServiceConnected(ComponentName name, IBinder com.example.componentbase.service) {
+            mIBookManager = IBookManager.Stub.asInterface(com.example.componentbase.service);
             Toast.makeText(MainAidlActivity.this, "绑定成功", Toast.LENGTH_SHORT).show();
         }
 
@@ -289,8 +289,8 @@ public class MainAidlActivity extends AppCompatActivity {
 ```
    private ServiceConnection mServiceConnection = new ServiceConnection() {
         @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mIBookManager = IBookManager.Stub.asInterface(service);
+        public void onServiceConnected(ComponentName name, IBinder com.example.componentbase.service) {
+            mIBookManager = IBookManager.Stub.asInterface(com.example.componentbase.service);
             Toast.makeText(MainAidlActivity.this, "绑定成功", Toast.LENGTH_SHORT).show();
         }
 
@@ -301,7 +301,7 @@ public class MainAidlActivity extends AppCompatActivity {
     };
 ```
 
-跟踪`IBookManager.Stub.asInterface(service);`这个方法
+跟踪`IBookManager.Stub.asInterface(com.example.componentbase.service);`这个方法
 
 ```
   public static com.example.android.aidl.IBookManager asInterface(android.os.IBinder obj) {

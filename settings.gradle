@@ -1,1 +1,1 @@
-include ':app', ':remote_service', ':remote_client'
+include ':app', ':remote_service', ':remote_client', ':share', ':componentbase', ':login', ':base', ':app2'
