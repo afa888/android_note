@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.android.AlgorithmDemo.Kp;
+import com.example.android.DesignPatternsDemo.DecoratormodeActivity;
 import com.example.android.DraggerDemo.DragActivity;
 import com.example.android.EventBusDemo.EventActivity;
 import com.example.android.HashMapDemo.HashMapActivity;
@@ -50,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
                 kp.setA(list);
                 kp.mpSort();
                 kp.log();
+            }
+        });
+        findViewById(R.id.btDesignPatterns).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, DecoratormodeActivity.class));
+
             }
         });
         findViewById(R.id.btBinder).setOnClickListener(new View.OnClickListener() {
