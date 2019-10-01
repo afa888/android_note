@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DesignPatternsDemo.DecoratormodeActivity"></activity>
+        <activity android:name=".DesignPatternsDemo.PrototypeModeActivity"></activity>
+        <activity android:name=".DesignPatternsDemo.DecoratormodeActivity" />
         <activity android:name=".DesignPatternsDemo.StrategyModeActivity" />
         <activity android:name=".DesignPatternsDemo.MainDesignActivity" />
         <activity android:name=".HookDemo.HookActivity" />
