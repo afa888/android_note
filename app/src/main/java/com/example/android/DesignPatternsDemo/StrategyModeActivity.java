@@ -18,6 +18,8 @@ import com.example.android.R;
 * 封闭原则： 不能修改，只能扩展
 * 依赖倒转原则：抽象不应该依赖细节，细节应该依赖于抽象   https://blog.csdn.net/yabay2208/article/details/73826719
 * 里氏替换原则：子类可以扩展父类的功能，但不能改变父类原有的功能   https://blog.csdn.net/zhengzhb/article/details/7281833
+* 迪米特原则：最少知识原则，强调类之间的松耦合，利于复用，改掉一个弱耦合的类，不会对关系的类造成波及（）
+*
 *
 * */
 

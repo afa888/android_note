@@ -13,6 +13,7 @@ import android.view.View;
 import com.example.android.AlgorithmDemo.Kp;
 import com.example.android.DesignPatternsDemo.DecoratormodeActivity;
 import com.example.android.DesignPatternsDemo.PrototypeModeActivity;
+import com.example.android.DesignPatternsDemo.StateModeActivity;
 import com.example.android.DraggerDemo.DragActivity;
 import com.example.android.EventBusDemo.EventActivity;
 import com.example.android.HashMapDemo.HashMapActivity;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btDesignPatterns).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PrototypeModeActivity.class));
+                startActivity(new Intent(MainActivity.this, StateModeActivity.class));
 
             }
         });
