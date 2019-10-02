@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DesignPatternsDemo.IteratorActivity"></activity>
+        <activity android:name=".DesignPatternsDemo.ChainOfResponsibilityActivity"></activity>
+        <activity android:name=".DesignPatternsDemo.CommandActivity" />
+        <activity android:name=".DesignPatternsDemo.BridgeActivity" />
+        <activity android:name=".DesignPatternsDemo.IteratorActivity" />
         <activity android:name=".DesignPatternsDemo.MementoActivity" />
         <activity android:name=".DesignPatternsDemo.AdapterActivity" />
         <activity android:name=".DesignPatternsDemo.StateModeActivity" />
