@@ -13,6 +13,8 @@ import android.view.View;
 
 import com.example.remote_service.IMyAidlInterface;
 
+import java.lang.reflect.Proxy;
+
 public class MainActivity extends AppCompatActivity {
     private IMyAidlInterface mIMyAidlInterface;
 

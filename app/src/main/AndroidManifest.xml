@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DesignPatternsDemo.VisitorActivity"></activity>
+        <activity android:name=".HookDemo.SecondActivity"></activity>
+        <activity android:name=".DesignPatternsDemo.VisitorActivity" />
         <activity android:name=".DesignPatternsDemo.InterpreterActivity" />
         <activity android:name=".DesignPatternsDemo.FlyweightModeActivity" />
         <activity android:name=".DesignPatternsDemo.ChainOfResponsibilityActivity" />

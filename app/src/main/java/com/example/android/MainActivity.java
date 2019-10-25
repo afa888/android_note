@@ -18,6 +18,7 @@ import com.example.android.DesignPatternsDemo.StateModeActivity;
 import com.example.android.DraggerDemo.DragActivity;
 import com.example.android.EventBusDemo.EventActivity;
 import com.example.android.HashMapDemo.HashMapActivity;
+import com.example.android.HookDemo.HookActivity;
 import com.example.android.MvpDemo.LoginActivity;
 import com.example.android.Rxjava.RxjavaActivity;
 import com.example.android.mvvmDemo.MvvmActivity;
@@ -56,10 +57,19 @@ public class MainActivity extends AppCompatActivity {
                 kp.log();
             }
         });
+
+
         findViewById(R.id.btDesignPatterns).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, FlyweightModeActivity.class));
+
+            }
+        });
+        findViewById(R.id.button9).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HookActivity.class));
 
             }
         });
@@ -173,11 +183,6 @@ public class MainActivity extends AppCompatActivity {
             //调用构造方法
             con.setAccessible(true);//暴力访问(忽略掉访问修饰符)
             obj = con.newInstance(16);
-
-
-
-
-
 
 
 
