@@ -23,6 +23,7 @@ import com.example.android.MvpDemo.LoginActivity;
 import com.example.android.Rxjava.RxjavaActivity;
 import com.example.android.mvvmDemo.MvvmActivity;
 import com.example.android.mvvmDemo.MvvmRecyclerViewActivity;
+import com.example.android.threadpool.ThreadPoolActivity;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -70,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, HookActivity.class));
+
+            }
+        });
+        findViewById(R.id.button10).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ThreadPoolActivity.class));
 
             }
         });

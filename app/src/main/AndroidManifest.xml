@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HookDemo.SecondActivity"></activity>
+        <activity android:name=".threadpool.ThreadPoolActivity"></activity>
+        <activity android:name=".HookDemo.SecondActivity" />
         <activity android:name=".DesignPatternsDemo.VisitorActivity" />
         <activity android:name=".DesignPatternsDemo.InterpreterActivity" />
         <activity android:name=".DesignPatternsDemo.FlyweightModeActivity" />
@@ -37,6 +38,7 @@
         <activity android:name=".EventBusDemo.EventActivity" />
         <activity android:name=".DraggerDemo.DragActivity" />
         <activity android:name=".ActivityAnnotation" />
+        <service android:name=".threadpool.MuyIntentService"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

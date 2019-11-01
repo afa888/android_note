@@ -40,5 +40,4 @@ public class ServiceFactory {
         }
         return accountService;
     }
-
 }
