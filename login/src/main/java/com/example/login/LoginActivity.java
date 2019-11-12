@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.annotion.BindPath;
 
-@Route(path = "/account/login")
+
+//@Route(path = "/account/login")
+@BindPath("login/login")
 public class LoginActivity extends AppCompatActivity {
 
     @Override

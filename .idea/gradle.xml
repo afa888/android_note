@@ -8,17 +8,21 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/anno" />
+            <option value="$PROJECT_DIR$/annotation" />
+            <option value="$PROJECT_DIR$/annotation_complier" />
+            <option value="$PROJECT_DIR$/annotion" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app2" />
+            <option value="$PROJECT_DIR$/arouterlibrary" />
             <option value="$PROJECT_DIR$/base" />
             <option value="$PROJECT_DIR$/componentbase" />
             <option value="$PROJECT_DIR$/login" />
-            <option value="$PROJECT_DIR$/remote_client" />
-            <option value="$PROJECT_DIR$/remote_service" />
             <option value="$PROJECT_DIR$/share" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>

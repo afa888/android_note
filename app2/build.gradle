@@ -16,6 +16,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName()]
+                includeCompileClasspath = true
             }
         }
     }
@@ -37,8 +38,12 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    //annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     implementation project(':base')
     implementation project(':login')
     implementation project(':share')
+    implementation project(':annotion')
+    implementation project(':arouterlibrary')
+
+
 }

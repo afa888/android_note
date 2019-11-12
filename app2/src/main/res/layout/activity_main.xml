@@ -25,4 +25,10 @@
         android:onClick="fragment"
         android:text="跳 fragment" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="ha"
+        android:text="跳 fragment" />
+
 </LinearLayout>

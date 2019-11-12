@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.alibaba.android.arouter.launcher.ARouter;
+
+import  com.example.arouterlibrary.Arout.Arouter;
 import com.example.componentbase.ServiceFactory;
+import com.example.login.LoginActivity;
 import com.example.share.ShareActivity;
 //组件化主项目
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void login(View view) {
-        ARouter.getInstance().build("/account/login").navigation();
+      //  ARouter.getInstance().build("/account/login").navigation();
     }
 
     /**
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void share(View view) {
-        ARouter.getInstance().build("/share/share").withString("share_content", "分享数据到微博").navigation();
+       // ARouter.getInstance().build("/share/share").withString("share_content", "分享数据到微博").navigation();
     }
     /**
      * 跳 FragmentActivity
@@ -42,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
      */
     public void fragment(View view) {
         startActivity(new Intent(this, FragmentActivity.class));
+    }
+    /**
+     * 跳 FragmentActivity
+     *
+     * @param view
+     */
+    public void ha(View view) {
+       // startActivity(new Intent(this, ShareActivity.class));
+        Arouter.getInstance().jumpActivity("login/login",new Bundle());
     }
 
 }

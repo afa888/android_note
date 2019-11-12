@@ -23,5 +23,10 @@ public class EmptyAccountService implements IAccountService {
     public Fragment newUserFragment(Activity activity, int containerId, FragmentManager manager, Bundle bundle, String tag) {
         return null;
     }
+
+    @Override
+    public Class<?> get() {
+        return null;
+    }
 }
 

@@ -3,6 +3,7 @@ package com.example.login;
 import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -28,6 +29,10 @@ public class AccountService implements IAccountService {
         transaction.add(containerId, userFragment, tag);
         transaction.commit();
         return userFragment;
+    }
 
+    @Override
+    public Class<?> get() {
+        return LoginActivity.class;
     }
 }

@@ -11,9 +11,11 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+
 import com.example.componentbase.ServiceFactory;
 
-@Route(path = "/share/share")
+//@Route(path = "/share/share")
+/*@BindPath("share/share")*/
 public class ShareActivity extends AppCompatActivity {
 
     @Override
@@ -31,7 +33,7 @@ public class ShareActivity extends AppCompatActivity {
     }
 
     private void share() {
-        if(ServiceFactory.getInstance().getAccountService().isLogin()) {
+        if (ServiceFactory.getInstance().getAccountService().isLogin()) {
             Toast.makeText(this, "分享成功", Toast.LENGTH_SHORT);
         } else {
             Toast.makeText(this, "分享失败：用户未登录", Toast.LENGTH_SHORT);
@@ -39,8 +41,9 @@ public class ShareActivity extends AppCompatActivity {
     }
 
     public void shareLogin(View view) {
-        ARouter.getInstance().build("/account/login").navigation();
-     // startActivity(new Intent(ShareActivity.this, com.example.login.LoginActivity.class));
+        //  ARouter.getInstance().build("/account/login").navigation();
+        Class<?> dd = ServiceFactory.getInstance().getAccountService().get();
+        startActivity(new Intent(ShareActivity.this, dd));
 
     }
 

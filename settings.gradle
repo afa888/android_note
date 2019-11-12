@@ -1,1 +1,1 @@
-include ':app', ':remote_service', ':remote_client', ':share', ':componentbase', ':login', ':base', ':app2'
+include ':app', ':share', ':componentbase', ':login', ':base', ':app2', ':annotation_complier', ':annotation', ':anno', ':arouterlibrary', ':annotion'

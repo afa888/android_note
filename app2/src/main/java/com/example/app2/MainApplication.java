@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.arouterlibrary.Arout.Arouter;
 import com.example.base.AppConfig;
 import com.example.base.BaseApp;
 import com.example.login.LoginApp;
@@ -27,6 +28,8 @@ public class MainApplication extends BaseApp {
         }
         // 初始化 ARouter
         ARouter.init(this);
+
+        Arouter.getInstance().init(this);
 
         // 其他操作 ...
     }

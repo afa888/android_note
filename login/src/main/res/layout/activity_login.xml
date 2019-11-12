@@ -43,4 +43,14 @@
         android:onClick="loginShare"
         android:text="去分享组件" />
 
+    <Button
+        android:id="@+id/bt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick=""
+        android:text="利用存储的方式去分享组件" />
+
+
+
 </LinearLayout>
