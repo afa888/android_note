@@ -14,13 +14,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.*;
 
-/**
- * Author：wangcaiwen
- * Date：2019-07-16
- * Description：注解处理器   自动生成类
- *
- * @author wangcaiwen
- */
+
 
 @AutoService(Processor.class)
 public class AnnotationCompiler extends AbstractProcessor {

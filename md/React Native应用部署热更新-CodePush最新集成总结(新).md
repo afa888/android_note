@@ -61,7 +61,7 @@ CodePush开源了react-native版本，[react-native-code-push](https://github.co
 注册 好后终端输入code-push login
 复制下图的token就可以登入了
 
-![img](https://github.com/afa888/android_reflection/blob/master/app/src/main/res/drawable/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-24%2016.22.14.png?raw=true)
+![img](https://ask.qcloudimg.com/http-save/yehe-1756439/hwvdw8t28c.png?imageView2/2/w/1620)
 
 
 

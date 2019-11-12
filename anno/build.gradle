@@ -3,7 +3,7 @@ apply plugin: 'java-library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.google.auto.service:auto-service:1.0-rc3'
-    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc3'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc3'//annotationProcessor是APT工具中的一种，他是google开发的内置框架
     // compileOnly 'com.google.auto.service:auto-service:1.0-rc3'
     implementation project(path: ':annotion')
 

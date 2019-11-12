@@ -60,7 +60,4 @@ dependencies {
     implementation project(path: ':annotion')
 
     annotationProcessor project(path: ':anno')
-
-
-
 }
